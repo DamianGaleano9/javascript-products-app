@@ -7,8 +7,9 @@ class Product  {
 }
 
 class UI {
-    addProduct() {
-
+    addProduct(product) {
+        const productList = document.getElementById('product-list');
+        const element = document.createElement('div');
     }
 
     deleteProduct() {
@@ -21,6 +22,14 @@ class UI {
 }
 
 // DOM EVENTS 
-document.getElementById('product-form').addEventListener('submit', function() {
-    alert('Enviando Formulario');
-})
+document.getElementById('product-form').addEventListener('submit', function(e) {
+    const name = document.getElementById('name').value;
+    const price = document.getElementById('price').value;
+    const year = document.getElementById('year').value;
+
+    console.log(name, price, year);
+
+   const product = new Product(name, price, year); 
+
+    e.preventDefault();
+});
