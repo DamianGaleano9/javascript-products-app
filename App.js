@@ -29,8 +29,11 @@ class UI {
         document.getElementById('product-form').reset();
     }
 
-    deleteProduct() {
-
+    deleteProduct(element) {
+        if(element.name === 'delete'){
+            element.parentElement.parentElement.parentElement.remove();
+            
+        }
     }
 
     showMessage() {
@@ -55,5 +58,6 @@ document.getElementById('product-form').addEventListener('submit', function(e) {
 });
 
 document.getElementById('product-list').addEventListener('click', function(){
-    alert("eliminando");
+    const ui = new UI();
+    ui.deleteProduct(e.target);
 });
