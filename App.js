@@ -32,7 +32,7 @@ class UI {
     deleteProduct(element) {
         if(element.name === 'delete'){
             element.parentElement.parentElement.parentElement.remove();
-            this.showMessage('Product delete Successfully', 'danger');
+            this.showMessage('Product delete Successfully', 'info');
         }
     }
 
@@ -60,6 +60,10 @@ document.getElementById('product-form').addEventListener('submit', function(e) {
    const product = new Product(name, price, year); 
 
    const ui = new UI ();
+
+   if(name === '' | price === '' | year === '') {
+     return  ui.showMessage('Complete Fields Please' , 'danger');
+   }
    ui.addProduct(product);
    ui.resetForm();
    ui.showMessage('Product Added Successfully', 'success');
